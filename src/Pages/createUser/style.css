@@ -1,0 +1,19 @@
+.create_user{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+
+.address{
+    width: 50% !important;
+}
+.form_head{
+   font-weight: bold !important;
+   margin-top: 5px !important;
+}
+.form_note{
+    font-size: 12px;
+    text-align: center;
+    margin: 0 !important;
+}

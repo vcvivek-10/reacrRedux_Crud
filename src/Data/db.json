@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "vivek",
+      "lastName": "chalke",
+      "email": "vmchalke310@gmail.com",
+      "mobile": "7887535600",
+      "addressOne": "pune",
+      "addressTwo": "kotharud",
+      "zipCode": "411038",
+      "country": "IN",
+      "state": "MH",
+      "city": "Pune"
+    },
+    {
+      "id": 2,
+      "firstName": "dadasdasd",
+      "lastName": "dasdad",
+      "email": "demo107007@gmail.com",
+      "mobile": "2334242423",
+      "addressOne": "fsdfsdf",
+      "addressTwo": "sdfsf",
+      "zipCode": "423424",
+      "country": "AD",
+      "state": "02",
+      "city": "Canillo"
+    }
+  ]
+}
