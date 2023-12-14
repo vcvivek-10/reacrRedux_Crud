@@ -25,15 +25,19 @@ const CreateUser = () => {
     const navigate = useNavigate()
     const editObj = useSelector((state) => state.users.singleUserObj)
     // console.log(editObj);
-    
+
     let countryData = Country.getAllCountries();
     const [stateData, setStateData] = useState();
     const [cityData, setCityData] = useState();
-    
+
     const [country, setCountry] = useState("");
     const [state, setState] = useState("");
     const [city, setCity] = useState("");
-  
+
+    const [phoneCode, setPhoneCode] = useState()
+
+    console.log(phoneCode);
+
     // console.log(countryData);
     useEffect(() => {
         setStateData(State.getStatesOfCountry(country));
@@ -52,7 +56,7 @@ const CreateUser = () => {
     }, [cityData]);
 
     useEffect(() => {
-        // console.log(editObj);
+        console.log(editObj);
         if (Object.keys(editObj).length > 0 && isEdit) {
             setUserFormValues({
                 id: editObj.id,
@@ -64,6 +68,7 @@ const CreateUser = () => {
                 addressTwo: editObj.addressTwo,
                 zipCode: editObj.zipCode,
             })
+            setPhoneCode(editObj.phoneCode)
             setCountry(editObj.country)
             setState(editObj.state)
             setCity(editObj.city)
@@ -76,7 +81,7 @@ const CreateUser = () => {
     const handleChange = (event) => {
         // console.log(event);
         const { name, value } = event.target
-        setUserFormValues({ ...userFormValues, [name]:value })
+        setUserFormValues({ ...userFormValues, [name]: value })
     }
 
     const handleSubmit = (e) => {
@@ -92,7 +97,8 @@ const CreateUser = () => {
             zipCode: userFormValues.zipCode,
             country,
             state,
-            city
+            city,
+            phoneCode
         }
         // console.log(_obj);
 
@@ -148,7 +154,18 @@ const CreateUser = () => {
                                     size='small'
                                     label="Country"
                                     value={country || ""}
-                                    onChange={(e) => setCountry(e.target.value)}
+                                    onChange={(e) => {
+                                        setCountry(e.target.value)
+                                        const data = countryData?.filter((item) => {
+                                            if (item.isoCode == e.target.value) {
+                                                return item.phonecode
+                                            }
+                                        })
+                                        for (var key in data) {
+                                            setPhoneCode(data[key].phonecode)
+                                        }
+
+                                    }}
                                     disabled={isEdit}
                                 >
                                     {
@@ -165,7 +182,7 @@ const CreateUser = () => {
                                     size='small'
                                     label="State"
                                     value={state || ""}
-                                    onChange={(e) => setState(e.target.value)}
+                                    onChange={(e) => { setState(e.target.value) }}
                                 >
                                     {
                                         stateData?.map((option, index) => {
@@ -241,6 +258,15 @@ const CreateUser = () => {
                             />
 
                             <Stack direction='row' spacing={2}>
+                                <TextField
+                                    className='phone_width'
+                                    size='small'
+                                    placeholder='P-code'
+                                    variant='outlined'
+                                    type='number'
+                                    value={phoneCode}
+                                    disabled
+                                />
                                 <TextField
                                     size='small'
                                     variant='outlined'
