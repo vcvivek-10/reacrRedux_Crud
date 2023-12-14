@@ -13,7 +13,7 @@ function App() {
 			<Router>
 			<Header/>
 				<Routes>
-					<Route path='/' element={<Users />} />
+					<Route path='/all' element={<Users />} />
 					<Route path='/user' element={<CreateUser />} />
 				</Routes>
 			</Router>

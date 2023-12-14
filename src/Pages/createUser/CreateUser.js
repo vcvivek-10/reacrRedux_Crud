@@ -101,7 +101,7 @@ const CreateUser = () => {
         } else {
             dispatch(CreateNewUser(_obj))
         }
-        navigate("/")
+        navigate("/all")
     }
 
     const clearState = () => {

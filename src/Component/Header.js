@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 import CreateUser from '../Pages/createUser/CreateUser';
 
 const drawerWidth = 240;
-const navItems = [{id: 0,name: "Home",link:""}];
+const navItems = [{id: 0,name: "Home",link:"/all"}];
 
 function Header(props) {
     
