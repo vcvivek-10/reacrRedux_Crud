@@ -47,7 +47,7 @@ const Users = (props) => {
 
     const handleEdit = (editDetails, state) => {
         dispatch(EditSelectedUser(editDetails))
-        navigate(`/user?isEdit=${state}`)
+        navigate(`/reacrRedux_Crud?isEdit=${state}`)
     }
 
     const handleDelete = (id) => {
@@ -68,7 +68,7 @@ const Users = (props) => {
                     sx={{ fontSize: "22px", textAlign: "center", fontWeight: 700, color: "#191970" }}
                 >Users Data Table</Typography>
                 <div style={{ margin: "1%", textAlign: 'right' }}>
-                    <Button variant='contained' component={Link} to={"/user"}>Add New (+)</Button>
+                    <Button variant='contained' component={Link} to={"/reacrRedux_Crud"}>Add New (+)</Button>
                 </div>
                 <div style={{ margin: "1%" }}>
                     <TableContainer>
@@ -148,10 +148,10 @@ const Users = (props) => {
             }
 
             {
-                delPopup && <DeleteModal 
-                     open={delPopup}
-                     handleClose={handleDelClose}
-                     delRowID={delRowID }
+                delPopup && <DeleteModal
+                    open={delPopup}
+                    handleClose={handleDelClose}
+                    delRowID={delRowID}
                 />
             }
         </div>

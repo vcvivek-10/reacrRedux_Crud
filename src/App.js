@@ -13,8 +13,8 @@ function App() {
 			<Router>
 			<Header/>
 				<Routes>
-					<Route path='/all' element={<Users />} />
-					<Route path='/user' element={<CreateUser />} />
+					<Route path='/reacrRedux_Crud' element={<CreateUser />} />
+					<Route path='/users' element={<Users />} />
 				</Routes>
 			</Router>
 			<ToastContainer position='top-right'></ToastContainer>
